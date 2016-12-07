@@ -3,9 +3,9 @@ $(document).ready( function(){
 	console.log("READY!");
 	//Etapa 8 y 9 
 	$(".js-show-make").click(function(){
-	    $(".page").addClass("make");
-	    $(".js-show-make").addClass("active");
-	   	$(".js-show-recipe").removeClass("active");
+		$(".page").addClass("make");
+		$(".js-show-make").addClass("active");
+		$(".js-show-recipe").removeClass("active");
 	});
 
 	$(".js-show-recipe").click(function(){
