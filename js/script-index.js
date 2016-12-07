@@ -75,6 +75,12 @@ function renderRecipe(recipe) {
 */
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
+	if (activitiesArray.lenght > 0){
+		$(".wrapper-message").hide();
+	}
+	for (var i=0; activitiesArray.lenght;i++){
+			renderActivity(activitiesArra[i]);
+	}
 }
 
 /*
