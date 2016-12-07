@@ -4,7 +4,7 @@ $(document).ready( function(){
 	printNews ();
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
-	renderActivities(renderActivity);
+	renderActivities(activities);
 
 });
 
@@ -76,11 +76,11 @@ function renderRecipe(recipe) {
 */
 function renderActivities(activitiesArray) {
 	console.log('Activities: ', activitiesArray);
-	if (activitiesArray.length > 0){
-		$(".wrapper-message").hide();
+	if (activitiesArray.length>0) {
+		$(".wrapper-message").hide('fast');
 	}
-	for (var i=0; i < activitiesArray.length; i++){
-		renderActivity(activitiesArray[i]);
+	for (var i = 0; i<activitiesArray.length;i++) {
+			renderActivity(activitiesArray[i]);
 	}
 }
 
@@ -90,26 +90,29 @@ function renderActivities(activitiesArray) {
 * archivo "templates/templates-activity.html"
 */
 function renderActivity(recipe) {
+	console.log("algo");
 	var template =
-	'<a href="#" class = "item-activity">' + 
-		'<span class = "attribution">' + 
-			'<span class = "avatar">' +
-				'<img src = "<%= userAvatar%>" class = "image-avatar">' +
-			'</span>'
-			'<span class="meta">' +
-				'<span class="author"><%= userName %></span>' +
-				'<span class="recipe"><%= recipeName %></span>' +
-				'<span class="location"><%= place%></span>' +
+		'<a href="#" class="item-activity">' + 
+			'<span class="attribution">' + 
+				'<span class="avatar">' +
+					'<img src="<%= userAvatar %>" class="image-avatar">' +
+				'</span>' +
+				'<span class="meta">' +
+					'<span class="author"><%= userName %></span>' +
+					'<span class="recipe"><%= recipeName %></span>' +
+					'<span class="location">&mdash;<%= place %></span>' +
+				'</span>' +
 			'</span>' +
-		'</span>' +
-		'<div class="bg-image" style="background-image: url(<% = image%>)"></div>' + 
-	'</a>';
-
+			'<div class="bg-image" style="background-image: url(&quot;<%= image %>&quot;)"></div>' + 
+		'</a>';
+	console.log("algo2");
 	var compiled = _.template(template);
+	console.log("algo3");
 	var a = compiled(recipe);
+	console.log("algo4");
 	console.log(a);
 	var element = $(a);
 	$(".list-activities").append(element);
-};
+}
 
 
